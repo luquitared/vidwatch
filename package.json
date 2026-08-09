@@ -1,0 +1,10 @@
+{
+  "name": "vidwatch",
+  "version": "0.1.0",
+  "description": "Give agents eyes for video — Gemini-powered CLI that turns videos into accurate timestamped text timelines, plus local frame extraction.",
+  "type": "module",
+  "bin": { "vidwatch": "src/cli.ts" },
+  "scripts": { "start": "bun src/cli.ts" },
+  "dependencies": { "@google/genai": "^2.16.0" },
+  "engines": { "bun": ">=1.0.0" }
+}
