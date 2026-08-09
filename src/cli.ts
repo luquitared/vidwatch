@@ -33,7 +33,10 @@ WATCH OPTIONS
                           merged with corrected absolute timestamps (local files only)
       --concurrency <n>   Parallel requests in chunk mode (default: 4)
       --overlap <sec>     Chunk overlap so boundary events aren't cut (default: 2)
-      --json              Structured JSON output (segments[] + summary)
+      --json              Structured JSON output (segments[] + summary).
+                          Note: structured output slightly degrades audio attention
+                          (mitigated by the default prompt); prefer text mode when
+                          audio detail is critical
       --transcript        Also include a verbatim speech transcript
       --no-audio          Ignore the audio track
       --temperature <t>   Sampling temperature (default: model default)

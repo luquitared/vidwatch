@@ -68,7 +68,7 @@ Tested against a synthetic 15s ground-truth video (color cuts at exactly 3/6/9/1
 
 ## For agents
 
-- Start with `vidwatch probe` to size the job, then `vidwatch watch --json` for a machine-readable timeline.
+- Start with `vidwatch probe` to size the job, then `vidwatch watch` for the timeline. `--json` gives a machine-readable version, but know the trade: structured output measurably reduces the model's attention to the audio track (vidwatch's default prompt compensates, but faint/short sounds are still more reliably caught in text mode). Default to text output; reach for `--json` when you need to post-process segments programmatically and audio nuance isn't the point.
 - Re-analyzing the same video? Reuse the upload: the CLI prints `files/<id>` after uploading — pass it as the input for ~48h (skips upload; ffprobe-derived hints are unavailable in that mode).
 - Timestamps in the timeline are trustworthy to about ±1s (exact on clean cuts). To *see* a moment yourself, extract frames locally: `vidwatch frames video.mp4 --at 12.5,14 --width 800` and read the JPEGs.
 - To scan a long video cheaply: `--res low --chunk 120 --concurrency 6`, then re-run interesting ranges single-shot with `--start/--end --fps 5` for precision.
